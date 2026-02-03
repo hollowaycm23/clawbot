@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.30",
+    "lastTouchedAt": "2026-02-01T03:04:32.437Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-01T02:10:00.734Z",
+    "lastRunVersion": "2026.1.30",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "update": {
+    "checkOnStart": true
+  },
+  "auth": {
+    "profiles": {
+      "lm-studio:default": {
+        "provider": "lm-studio",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "lm-studio": {
+        "baseUrl": "http://26.191.51.35:1234/v1",
+        "apiKey": "sk-lm-Ae8LMWsp:aWls4ifIizQSU1Mk7SBw",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3-14b",
+            "name": "Qwen 3 14B",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen/qwen3-vl-4b",
+            "name": "Qwen 3 VL 4B (Embeddings)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 32000,
+            "maxTokens": 4096
+          },
+          {
+            "id": "text-embedding-nomic-embed-text-v1.5",
+            "name": "Nomic Embed Text v1.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 8192,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "lm-studio/qwen3-14b"
+      },
+      "models": {
+        "lm-studio/qwen3-14b": {
+          "alias": "local"
+        },
+        "lm-studio/qwen/qwen3-vl-4b": {
+          "alias": "embed"
+        },
+        "lm-studio/text-embedding-nomic-embed-text-v1.5": {
+          "alias": "nomic"
+        }
+      },
+      "workspace": "/home/holloway/.openclaw/workspace",
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": false
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial",
+      "actions": {
+        "reactions": true,
+        "sendMessage": true,
+        "sticker": true
+      },
+      "accounts": {
+        "219225576": {
+          "name": "OpenClaw",
+          "enabled": true,
+          "dmPolicy": "pairing",
+          "botToken": "8512562046:AAExlscQLZtQM3noya5UqyEN7GAlS1C_ca8",
+          "groupPolicy": "allowlist",
+          "streamMode": "partial"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "22eac977fc0145688c483570286efac2cfea3c8a79172a86"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Credentials and keys
+credentials/
+*.json
+!agents/**/manifest.json
+!skills/**/manifest.json
+
+# Logs
+logs/
+*.log
+
+# Runtime/Temp data
+browser/user-data/
+canvas/stargate/temp/
+tmp/
+.nvm/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Existing Git
+.git/

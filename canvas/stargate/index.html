@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stargate SG-1 Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🌌 STARGATE SG-1 SIMULATOR</h1>
+            <p class="subtitle">Cheyenne Mountain Complex - Stargate Command</p>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Stargate Visual -->
+            <div class="stargate-section">
+                <div class="stargate-container">
+                    <canvas id="stargateCanvas" width="600" height="600"></canvas>
+                    <div class="event-horizon" id="eventHorizon"></div>
+                    <!-- Legacy .chevron-lights container removed -->
+                    <div class="iris-protection" id="irisProtection">
+                        <!-- Iris blades will be added by JS or manually -->
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                        <div class="iris-blade"></div>
+                    </div>
+                </div>
+
+                <div class="status-panel">
+                    <div class="status-item">
+                        <span class="label">Status:</span>
+                        <span class="value" id="gateStatus">STANDBY</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Energia:</span>
+                        <span class="value" id="powerLevel">0 MW</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Chevrons:</span>
+                        <span class="value" id="chevronCount">0/7</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Destino:</span>
+                        <span class="value" id="destination">---</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Audio Mode:</span>
+                        <span class="value" id="soundMode">SYNTHETIC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DHD (Dial Home Device) -->
+            <div class="dhd-section">
+                <h2>DHD - Dial Home Device</h2>
+                <div class="dhd-container">
+                    <div class="dhd-grid" id="dhdGrid"></div>
+                    <button class="activate-button" id="activateButton">
+                        <span class="button-glow"></span>
+                        ATIVAR
+                    </button>
+                </div>
+
+                <div class="address-display">
+                    <h3>Endereço Selecionado</h3>
+                    <div class="address-symbols" id="addressSymbols">
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                        <div class="symbol-slot">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="destinations-section">
+                <h2>Destinos Conhecidos</h2>
+                <div class="destinations-list" id="destinationsList"></div>
+
+                <div class="controls">
+                    <button class="control-btn" id="resetButton">Reset</button>
+                    <button class="control-btn" id="irisButton">Iris: ABERTO</button>
+                    <button class="control-btn" id="emergencyButton">Emergência</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log Console -->
+        <div class="console">
+            <h3>Console de Eventos</h3>
+            <div class="console-output" id="consoleOutput"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
